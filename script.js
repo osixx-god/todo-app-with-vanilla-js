@@ -5,8 +5,11 @@ const clearCompBtn = document.getElementById("clear-completed");
 let todoArray = JSON.parse(localStorage.getItem("todos")) || [];
 let currentFilter = "all";
 const filterBtns = document.querySelectorAll("[data-filter]");
-
+const themeToggleBtn = document.querySelector(".theme-toggle-btn");
+const themeIcon = document.querySelector(".theme-toggle-btn img");
+const darkMode = document.classList.contains("dark");
 const bottomNav = document.querySelector(".bottom-nav");
+
 bottomNav.addEventListener("click", (e) => {
   const button = e.target.closest("button");
   if (!button) {
@@ -113,9 +116,15 @@ function clearCompleted() {
   renderTodos();
 }
 clearCompBtn.addEventListener("click", clearCompleted);
-const themeToggleBtn = document.querySelector(".theme-toggle-btn");
+
 themeToggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+
+  themeIcon.src = darkMode ? "./images/icon-sun.svg" : "./images/icon-moon.svg";
+  themeToggleBtn.setAttribute(
+    "aria-label",
+    `${darkMode ? "switch to light mode" : "switch to dark mode"}`,
+  );
 });
 
 renderTodos();
