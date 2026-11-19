@@ -28,6 +28,8 @@ A todo app built with vanilla HTML, CSS and JavaScript, based on the [Frontend M
 - One delegated `change` listener and one delegated `click` listener on the list handle toggling and deleting, including for todos created after the page loads.
 - A `currentFilter` variable decides which todos are shown and which filter button is highlighted.`
 
+- ![Screenshot of the todo app](./screenshot.png)
+
 ## What I learned
 
 CSS specificity decides which rule wins: my `.selected:hover` rule was ignored even though it came last in the file, because `.bottom-nav button:hover` scored higher. I fixed it by adding `button:not(.selected):hover` on the `.bottom-nav`
